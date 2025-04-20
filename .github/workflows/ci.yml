@@ -4,6 +4,7 @@ env:
   REGISTRY: ccr.ccs.tencentyun.com
   NAMESPACE: docker_test_project
   MAIN_IMAGE_NAME: ${{ github.event.repository.name }}
+  IMAGE_SCOPE: personal
 
 on:
   push:
