@@ -2,9 +2,8 @@ name: Docker Test CI/CD Pipeline
 
 env:
   REGISTRY: ccr.ccs.tencentyun.com
-  NAMESPACE: ${{ docker_test_project }}
-  MAIN_IMAGE_NAME: ${{ github.event.repository.name }}-api
-  USER_IMAGE_NAME: ${{ github.event.repository.name }}-user
+  NAMESPACE: docker_test_project
+  MAIN_IMAGE_NAME: ${{ github.event.repository.name }}
 
 on:
   push:
@@ -24,8 +23,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ docker_test_4_20 }}
-          password: ${{ 5471qqaa~ }}
+          username: ${{ secrets.TENCENT_CLOUD_USERNAME }}
+          password: ${{ secrets.TENCENT_CLOUD_PASSWORD }}
 
       - name: Read version
         id: version
